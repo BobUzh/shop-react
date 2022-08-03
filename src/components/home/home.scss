@@ -1,0 +1,37 @@
+@import "../../settings";
+.welcome {
+  margin: 50px 0;
+  h3 {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+}
+.about-us {
+  margin-top: 100px;
+  display: flex;
+  border: $border;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  justify-content: space-between;
+
+  .text {
+    position: relative;
+    padding: 30px;
+    border: $border;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    width: 100%;
+
+    span {
+      position: absolute;
+      font-size: x-large;
+      font-weight: 600;
+      transform: translateX(-50%);
+      top: -20px;
+      padding: 0 7px;
+      border-left: 3px solid #a3a3a5;
+      border-right: 3px solid #a3a3a5;
+      background-color: $background;
+    }
+  }
+}
