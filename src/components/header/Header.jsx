@@ -1,18 +1,36 @@
 import { Link } from 'react-router-dom';
+import {useEffect, useState} from "react";
+
+import { getCategories } from '../../api/Category';
 
 import './header.scss';
 import logo from './vx2.png';
 
 const Header = () => {
+    const [mainMenu, setMainMenu] = useState([]);
+    const [subMenu, setSubMenu] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await getCategories();
+            setMainMenu(res.data.filter(e => !e.parent));
+            setSubMenu(res.data.filter(e => e.parent));
+            console.log(res.data)
+        };
+
+        fetchData();
+    }, []);
+
     const itemMenuNotAuthUser = (
-        <div className="auth-menu">
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/registration">Registration</Link></li>
-        </div>
+        <ul className="auth-menu">
+            <li className="item-menu"><Link to="/login">Login</Link></li>
+            <li className="item-menu"><Link to="/registration">Registration</Link></li>
+        </ul>
     );
+
     const itemMenuAuthUser = (
         <div className="auth-menu">
-            <li >Logout</li>
+            <span >Logout</span>
         </div>
     );
 
@@ -26,20 +44,31 @@ const Header = () => {
                 </Link>
             </div>
             <div className="nav">
-                <div className="nav-top">
+                <div className="top">
                     <Link to="/admin" className="user">user</Link>
                     <div className="slogan">
                         russian warship <span className="fuck"> FUCK YOU</span>
                     </div>
                 </div>
-                <div className="nav-bottom">
-                    <ul>
-                        <div className="nav-menu">
-                            <li><Link to="/product">PRODUCTS</Link></li>
-                            <li><Link to="/product">CATEGORIES</Link></li>
-                        </div>
+                <div className="menu">
+                    <div className="wrapper-menu">
+                        <ul className="nav-menu">
+                            { mainMenu && mainMenu.map(e => {
+                                return (
+                                    <li key={e.id} className="item-menu">
+                                        <Link to={e.slug}>{e.name}</Link>
+                                        <div className="wrapper-sub-menu">
+                                            {subMenu && subMenu.map(s => {
+                                                return s.parent == e.id &&
+                                                    (<div className="item-sub-menu" key={s.id}>{s.name}</div>)
+                                            })}
+                                        </div>
+                                    </li>
+                                );
+                            })}
+                        </ul>
                         {userMenuItems}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>

@@ -11,6 +11,8 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Login from "./components/auth/Login";
 import Registration from "./components/auth/Registration";
+import Card from "./components/card/Card";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/login" element={<Auth component={<Login/>} />}/>
                 <Route path="/registration" element={<Auth component={<Registration/>} />}/>
+                <Route path="/:categoryname/" element={<Categories />} />
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
         </div>

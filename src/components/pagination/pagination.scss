@@ -1,0 +1,25 @@
+@import "../../settings";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  border: 2px solid $white;
+  border-top-color: transparent;
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    border-radius: 50px;
+    padding: 4px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid $white;
+
+    &:hover {
+      color: $background;
+      background-color: $white;
+    }
+  }
+}

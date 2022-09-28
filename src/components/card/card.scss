@@ -1,0 +1,66 @@
+@import "../../settings";
+
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 15px;
+  flex-wrap: wrap;
+  border-top: 2px solid $white;
+}
+
+.card {
+  min-width: 20%;
+  max-width: 23%;
+  margin: 15px 0;
+  padding: 20px 0 20px 0;
+  background-color: $white;
+  color: $background;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .name {
+    font-weight: 800;
+    font-size: large;
+
+    span {
+      display: block;
+      margin-top: 5px;
+      opacity: 0.8;
+      font-weight: 400;
+      font-size: medium;
+    }
+  }
+
+  .price {
+    font-weight: 800;
+  }
+
+  .btn {
+    background-color: $background;
+    border: 4px double $white;
+    cursor: pointer;
+    color: $white;
+    display: inline-block;
+    padding: 7px 35px;
+    margin: 10px 0;
+    border-radius: 15px;
+    transition: .3s;
+
+    &:hover {
+      background-color: $white;
+      border-color: $background;
+      color: $background;
+      transition: .3s;
+    }
+  }
+
+  .more {
+    //margin-top: 5px;
+    font-size: small;
+  }
+
+  .img img{
+    width: 100%;
+  }
+}

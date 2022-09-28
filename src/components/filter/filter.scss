@@ -1,0 +1,10 @@
+@import "../../settings";
+
+.filter {
+  min-height: 100vh;
+  margin: 0 15px 0 0;
+  border: 2px solid $white;
+  border-left-color: transparent;
+  flex: 1 1;
+
+}
