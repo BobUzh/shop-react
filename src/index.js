@@ -5,8 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { spy } from 'mobx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// spy(e => console.log(e))
 root.render(
   // <React.StrictMode>
       <BrowserRouter>

@@ -1,0 +1,78 @@
+@import '../../settings';
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: -430px;
+    z-index: 40;
+    width: 100%;
+    max-width: 420px;
+    height: 99%;
+    transition: 0.5s;
+    background-color: $background;
+    border: 3px solid white;
+    border-right-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.active {
+        right: 0;
+    }
+
+    .cart-inner {
+        padding: 10px;
+
+
+        .cart-inner-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .counter {
+
+                span:nth-child(1) {
+                    font-size: 32px;
+                    margin: 5px;
+                }
+            }
+
+            .close {
+                cursor: pointer;
+            }
+        }
+
+        .cart-inner-content {
+            overflow-y: scroll;
+            height: 600px;
+            &::-webkit-scrollbar {
+                width: 0px;
+            }
+        }
+    }
+
+    .cart-subtotal {
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+    }
+
+    .cart-footer a {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid $white;
+        border-radius: 3px;
+        background-color: $background;
+        color: $white;
+        padding: 5px;
+        margin: 5px;
+        transition: .3s;
+
+        &:hover {
+            color: $background;
+            background-color: $white;
+            transition: .3s;
+
+        }
+    }
+}

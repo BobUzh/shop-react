@@ -3,7 +3,6 @@ import { CSSTransition } from 'react-transition-group';
 import './slider.scss';
 import img1 from './1a.png';
 import img2 from './2a.png';
-// import img3 from './3a.png';
 import {useState} from "react";
 
 const Slider = () => {

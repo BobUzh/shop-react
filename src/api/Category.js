@@ -6,7 +6,5 @@ export const getCategories = async () => {
 
 export const getCategoryBySlug = async (slug) => {
     const usp = new URLSearchParams({slug})
-    console.log('=-=-=-=-=');
-    console.log(usp.toString());
     return  api.get('/store/categories/?' + usp.toString());
 };

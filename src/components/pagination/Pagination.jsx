@@ -1,13 +1,16 @@
+import { productStore } from '../../store/productStore';
+
 import './pagination.scss';
 
-const Pagination = () => {
+const Pagination = ({count}) => {
+
+    const { setOffset } = productStore;
+    const arr = [...Array(count).keys()];
 
     return (
         <div className="pagination">
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                {arr.map((e,idx) => <li key={idx} onClick={() => setOffset(e)}>{++e}</li>)}
             </ul>
         </div>
     )

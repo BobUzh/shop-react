@@ -26,6 +26,24 @@
         margin-left: 3px;
         font-weight: 600;
         filter: blur(1.3px);
+        margin-right: 15px;
+      }
+
+      .cart-link {
+        cursor: pointer;
+        position: relative;
+        margin-right: 10px;
+
+        span {
+          font-size: 10px;
+          font-weight: 600;
+          position: absolute;
+          bottom: 17px;
+          left: 8px;
+          border-radius: 50%;
+          background-color: darkorange;
+          padding: 0 3px 0 4px;
+        }
       }
     }
 
@@ -60,6 +78,10 @@
             .item-sub-menu {
               padding: 5px 0;
               cursor: pointer;
+
+              a {
+                color: $background;
+              }
 
               &:hover {
                 font-weight: 600;

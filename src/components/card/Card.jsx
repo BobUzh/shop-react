@@ -1,6 +1,9 @@
+import { cartStore } from '../../store/cartStore';
+
 import './card.scss';
 
 const Card = ({card}) => {
+    const { addProduct } = cartStore;
 
     return (
             <div className="card" key={card.id}>
@@ -12,7 +15,7 @@ const Card = ({card}) => {
                 </div>
                 <div className="price">{card.price}</div>
                 <div>
-                    <div className="btn">ADD TO CART</div>
+                    <div className="btn" onClick={() => addProduct(card)}>ADD TO CART</div>
                     <div className="more">MORE</div>
                 </div>
             </div>

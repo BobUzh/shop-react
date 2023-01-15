@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { login } from '../../api/Auth';
+import { userStore } from "../../store/userStore";
 
 import './auth.scss'
 
@@ -20,14 +21,18 @@ const Login = () => {
             const res = await login({username, password});
             localStorage.setItem('access', res.data.access);
             localStorage.setItem('refresh', res.data.refresh);
+            userStore.setAuthorize(true);
         } catch (e) {
             console.log(e);
+            userStore.setAuthorize(false);
             setMessage(e.response.data);
         } finally {
             setLoading(false);
         }
 
     };
+
+    
 
     const spiner = (
         <div className="mask">
